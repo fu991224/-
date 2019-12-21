@@ -1,7 +1,7 @@
 <template>
 
   <div class="videocontainer">
-    <el-card class="card" id="aaa" style="border:0px;">
+    <el-card class="card">
       <div class="tubiao">
         <img src="../../assets/img/logo_index.png" alt="">
       </div>
@@ -32,10 +32,27 @@ export default {
   methods: {
     submitLogin () {
       // 手动校验
-      this.$refs.myForm.validate(function (isOK) {
+      this.$refs.myForm.validate((isOK) => {
         if (isOK) {
           // 说明校验通过 调用登录接口
-          console.log('校验通过')
+          // axios body参数 get参数地址参数 路由参数 查询参数
+          // get参数 axios params
+          this.$axios({
+            url: '/authorizations', // 请求地址 axios 没有指定类型 默认get类型
+            method: 'post', // post类型
+            data: this.loginForm // body参数
+          }).then(result => {
+            // 只接受正确结果
+            // 前端缓存
+            window.localStorage.setItem('user-token', result.data.data.token)
+            this.$router.push('/home')// 跳转到home
+            console.log(result.data.data.token)
+          }).catch(() => {
+            this.$message({
+              type: 'warning',
+              message: '手机号或者验证码错误!'
+            })
+          })
         }
       })
     }
@@ -73,9 +90,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-body{border: 0px ;}
+.el-card{
+  border: 0px !important;
+}
 .card{
-
     width: 400px;
     height: 350px;
     margin-left:74% ;
