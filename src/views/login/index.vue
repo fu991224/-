@@ -50,7 +50,7 @@ export default {
           }).catch(() => {
             this.$message({
               type: 'warning',
-              message: '手机号或者验证码错误!'
+              message: '你填你妈呢？臭弟弟!'
             })
           })
         }
