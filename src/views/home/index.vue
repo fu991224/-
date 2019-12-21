@@ -2,7 +2,9 @@
 <!-- 最大容器 -->
 <el-container>
   <!-- 左右布局 -->
-  <el-aside> 左侧内容</el-aside>
+  <el-aside>
+    <layout-aside style="height:100vh;background-color:#353b4e;width:230px;"></layout-aside>
+  </el-aside>
   <!-- 右侧容器 -->
   <el-container>
     <!-- 上下布局 -->
@@ -13,8 +15,11 @@
 </template>
 
 <script>
+import layoutAside from '../../components/home/layout-aside'
 export default {
-
+  components: {
+    'layout-aside': layoutAside
+  }
 }
 </script>
 
