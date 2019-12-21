@@ -40,8 +40,10 @@ export default {
 </script>
 
 <style lang='less' scoped>
+
  .layout-aside {
-     width: 230px;
+     width: 230px!important;
+     margin: 0px;
      .el-menu {
        border-right:none;
      };
