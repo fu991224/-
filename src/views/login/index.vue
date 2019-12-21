@@ -1,7 +1,7 @@
 <template>
 
   <div class="videocontainer">
-    <el-card class="card">
+    <el-card class="card" id="aaa" style="border:0px;">
       <div class="tubiao">
         <img src="../../assets/img/logo_index.png" alt="">
       </div>
@@ -73,11 +73,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
+body{border: 0px ;}
 .card{
+
     width: 400px;
     height: 350px;
     margin-left:74% ;
     margin-top: 10%;
+    background: rgba(25,29,34,.65);
     .tubiao{
       margin-bottom:30px;
     text-align: center;
@@ -119,6 +122,6 @@ export default {
     z-index: -1;
     top: 0;
     left: 0;
-    /* background: rgba(25,29,34,.65); */
+
 }
 </style>
